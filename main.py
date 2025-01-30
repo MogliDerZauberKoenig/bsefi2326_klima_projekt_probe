@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import timefrom w1thermsensor import W1ThermSensor
+from w1thermsensor import W1ThermSensor
 import time
 import requests
 import threading
