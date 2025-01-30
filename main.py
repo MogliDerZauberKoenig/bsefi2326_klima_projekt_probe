@@ -69,5 +69,5 @@ def main():
         
 		time.sleep(probeInterval)
 
-if __name__ == "__main":
+if __name__ == "__main__":
     main()
