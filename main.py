@@ -49,6 +49,17 @@ def fanSpeed(currentTemp: float, temp: float) -> int:
             GPIO.output(relaisPin, GPIO.HIGH)
         pwm.ChangeDutyCycle(speed)"""
 
+def controlFan(speed: int):
+	if speed == 0:
+		relaisIsOff = True
+		GPIO.output(relaisPin, GPIO.LOW)
+		pwm.ChangeDutyCycle(speed)
+	else:
+		if relaisIsOff:
+			relaisIsOff = False
+			GPIO.output(relaisPin, GPIO.HIGH)
+		pwm.ChangeDutyCycle(speed)
+
 def sendData(temp: float):
 	payload = { "value": temp }
 
@@ -64,8 +75,11 @@ def sendData(temp: float):
 def main():
 	while True:
 		temp = sensor.get_temperature()
+		speed = fanSpeed(temp, targetTemp)
+		print(speed)
 		if temp is not None:
 			threading.Thread(target=sendData, args={temp}, daemon=True).start()
+			threading.Thread(target=controlFan, args={speed}, daemon=True).start()
         
 		time.sleep(probeInterval)
 
