@@ -50,6 +50,8 @@ def fanSpeed(currentTemp: float, temp: float) -> int:
         pwm.ChangeDutyCycle(speed)"""
 
 def controlFan(speed: int):
+	global relaisIsOff
+	
 	if speed == 0:
 		relaisIsOff = True
 		GPIO.output(relaisPin, GPIO.LOW)
