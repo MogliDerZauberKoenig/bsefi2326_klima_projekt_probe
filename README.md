@@ -153,7 +153,3 @@ if __name__ == "__main__":
 - Stellt sicher, dass das Skript nur gestartet wird, wenn es direkt ausgeführt wird (nicht als Modul importiert).
 
 ---
-
-## Fazit
-Dieses Python-Skript liest regelmäßig die Temperatur vom DS18B20-Sensor aus, steuert einen PWM-Lüfter über ein Relais und sendet die gemessenen Daten an eine API. Die Lüftersteuerung erfolgt dynamisch basierend auf der Temperaturdifferenz zur Zieltemperatur. Multithreading ermöglicht gleichzeitige Prozesse ohne Verzögerungen.
-
