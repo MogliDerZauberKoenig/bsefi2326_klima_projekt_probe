@@ -9,7 +9,7 @@ relaisPin = 18
 pwmPin = 19
 
 apiUrl = "http://localhost:5000/api/temp/insert"
-targetTemp = 22.0
+targetTemp = 25.0
 probeInterval = 1.0 # <- in Sekunden
 
 GPIO.setup(relaisPin, GPIO.OUT)
