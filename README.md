@@ -42,7 +42,7 @@ relaisPin = 18
 pwmPin = 19
 apiUrl = "http://localhost:5000/api/temp/insert"
 targetTemp = 25.0
-probeInterval = 1.0  # Abfrageintervall in Sekunden
+probeInterval = 1  # Abfrageintervall in Sekunden
 ```
 - `relaisPin`: GPIO-Pin für das Relais
 - `pwmPin`: GPIO-Pin für den PWM-gesteuerten Lüfter
@@ -77,8 +77,7 @@ def fanSpeed(currentTemp: float, temp: float) -> int:
     diff = currentTemp - temp
     speed = min(10 + diff * 10 + (diff ** 1.8) * 3, 100)
 
-    if speed < 10:
-        speed = 10
+    speed = max(10, speed)
 
     return int(speed)
 ```

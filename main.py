@@ -10,7 +10,7 @@ pwmPin = 19
 
 apiUrl = "http://localhost:5000/api/temp/insert"
 targetTemp = 25.0
-probeInterval = 1.0 # <- in Sekunden
+probeInterval = 1 # <- in Sekunden
 
 GPIO.setup(relaisPin, GPIO.OUT)
 GPIO.setup(pwmPin, GPIO.OUT)
@@ -27,7 +27,7 @@ def fanSpeed(currentTemp: float, temp: float) -> int:
     diff = currentTemp - temp
     speed = min(10 + diff * 10 + (diff ** 1.8) * 3, 100)
 
-    if speed < 10: speed = 10
+    speed = max(10, speed)
 
     return int(speed)
 
