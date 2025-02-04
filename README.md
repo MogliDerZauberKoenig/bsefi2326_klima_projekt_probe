@@ -152,3 +152,21 @@ if __name__ == "__main__":
 - Stellt sicher, dass das Skript nur gestartet wird, wenn es direkt ausgeführt wird (nicht als Modul importiert).
 
 ---
+
+T   S
+25	10
+26	23
+27	40
+28	62
+29	86
+30	100
+31	100
+32	100
+33	100
+34	100
+35	100
+36	100
+37	100
+38	100
+39	100
+40	100
